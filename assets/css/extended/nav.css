@@ -1,0 +1,11 @@
+.nav-wrapper {
+	display: flex;
+}
+
+@media (max-device-width: 720px) {
+	.nav-wrapper {
+		width: 100%;
+		justify-content: center;
+		line-height: 2rem;
+	}
+}

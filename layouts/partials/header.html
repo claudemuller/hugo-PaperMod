@@ -93,8 +93,7 @@
 				{{- end -}}
 				{{- if .Site.Params.cliLabel }}
 				<div class="logo">
-					<span class="logo__mark">&gt;</span>
-					<span class="logo__text">root@{{ .Site.Title }}:~# cd /home/{{ .Site.Params.cliLabel.text }}/</span>
+					<span class="logo__text">&gt; root@{{ .Site.Title }}:~# cd /home/{{ .Site.Params.cliLabel.text }}/</span>
 					<span class="logo__cursor" style=" "></span>
 				</div>
 				{{- end }}
@@ -102,7 +101,7 @@
 			{{- end }}
 		</div>
 		{{- $currentPage := . }}
-		<div style="display: flex;">
+		<div class="nav-wrapper">
 			<ul id="menu" onscroll="menu_on_scroll()">
 				{{- range .Site.Menus.main }}
 				{{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}

@@ -9,7 +9,7 @@
         transform: scale(0.85);
     }
 
-    /* post-entry */
+    /* category-entry */
     .first-entry {
         min-height: 260px;
     }
@@ -40,7 +40,7 @@
 }
 
 @media (prefers-reduced-motion) {
-    /* terms; profile-mode; post-single; post-entry; post-entry; search; search */
+    /* terms; profile-mode; category-single; category-entry; category-entry; search; search */
     .terms-tags a:active,
     .button:active,
     .share-buttons svg:active,

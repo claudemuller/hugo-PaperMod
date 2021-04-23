@@ -44,3 +44,9 @@
 .button:active {
     transform: scale(.96)
 }
+
+@media (max-device-width: 720px) {
+    .home-info {
+        min-height: 180px;
+    }
+}

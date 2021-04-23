@@ -1,0 +1,17 @@
+.grid-2 {
+	display: grid;
+	grid-gap: 0 var(--gap);
+	grid-template-columns: 50% 50%;
+}
+
+.grid-3 {
+	display: grid;
+	grid-gap: 0 var(--gap);
+	grid-template-columns: 50% 23.85% 23.85%;
+}
+
+.grid-4 {
+	display: grid;
+	grid-gap: 0 var(--gap);
+	grid-template-columns: 23.8% 23.8% 23.8% 23.8%;
+}
