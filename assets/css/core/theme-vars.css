@@ -1,8 +1,9 @@
 :root {
     --gap: 24px;
     --content-gap: 20px;
-    /*--nav-width: 1024px;*/
-    /*--main-width: 720px;*/
+    --nav-width-wide: 1920px;
+    --main-width-wide: 1920px;
+    --main-width-semi-wide: 1324px;
     --nav-width: 1324px;
     --main-width: 1024px;
     --header-height: 60px;
@@ -21,11 +22,12 @@
 
 .dark {
     --theme: #1d1e20;
-    --entry: #2e2e33;
-    --primary: rgba(255, 255, 255, 0.84);
-    --secondary: rgba(255, 255, 255, 0.56);
-    --tertiary: rgba(255, 255, 255, 0.16);
-    --content: rgba(255, 255, 255, 0.74);
+    --entry: rgba(46,46,51,.6);
+    --entry-featured: rgb(46,46,51);
+    --primary: rgba(245,245,220, 0.84);
+    --secondary: rgba(245,245,220, 0.56);
+    --tertiary: rgba(245,245,220, 0.16);
+    --content: rgba(245,245,220, 0.74);
     --hljs-bg: #2e2e33;
     --code-bg: #37383e;
     --border: #333;

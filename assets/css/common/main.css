@@ -5,6 +5,12 @@
     margin: auto;
     padding: var(--gap)
 }
+.main-semi-wide {
+    max-width: calc(var(--main-width-semi-wide) + var(--gap) * 2);
+}
+.main-wide {
+    max-width: calc(var(--main-width-wide) + var(--gap) * 2);
+}
 
 .page-header h1 {
     font-size: 40px

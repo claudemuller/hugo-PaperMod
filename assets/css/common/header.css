@@ -1,3 +1,21 @@
+.nav-wrapper {
+    display: flex;
+}
+
+.header {
+    padding-top: 10px;
+}
+
+.header .nav-wide {
+    max-width: calc(var(--nav-width-wide) + var(--gap) * 2);
+}
+.header .nav-wide .logo {
+    margin-left: 24px;
+}
+.header .nav-wide .logo-switches {
+    margin-right: 15px;
+}
+
 .nav {
     display: flex;
     flex-wrap: wrap;
@@ -94,4 +112,12 @@ body:not(.dark) #sun {
 
 .logo-switches {
     flex-wrap: inherit
+}
+
+@media (max-device-width: 720px) {
+    .nav-wrapper {
+        width: 100%;
+        justify-content: center;
+        line-height: 2rem;
+    }
 }

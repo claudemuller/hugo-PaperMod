@@ -1,17 +1,23 @@
+:root {
+	--quarter-screen: calc(25% - var(--gap) / 1.3);
+	--half-screen: calc(50% - var(--gap) / 2);
+}
+
 .grid-2 {
 	display: grid;
 	grid-gap: 0 var(--gap);
-	grid-template-columns: 50% 50%;
+	grid-template-columns: var(--half-screen) var(--half-screen);
 }
 
 .grid-3 {
+	--colunm-2x: calc(50% - var(--gap) / 2);
 	display: grid;
 	grid-gap: 0 var(--gap);
-	grid-template-columns: 50% 23.85% 23.85%;
+	grid-template-columns: var(--colunm-2x) var(--quarter-screen) var(--quarter-screen);
 }
 
 .grid-4 {
 	display: grid;
 	grid-gap: 0 var(--gap);
-	grid-template-columns: 23.8% 23.8% 23.8% 23.8%;
+	grid-template-columns: var(--quarter-screen) var(--quarter-screen) var(--quarter-screen) var(--quarter-screen);
 }

@@ -14,7 +14,15 @@
 {{- end -}}
 " id="top">
     {{- partialCached "header.html" . .Page -}}
-    <main class="main">
+    <main class="main
+    {{ if eq $.Site.Params.width `wide` }}
+        {{ if not .IsPage }}
+        {{ print "main-wide" }}
+        {{ else }}
+        {{ print "main-semi-wide" }}
+        {{ end }}
+    {{ end }}
+    ">
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind -}}

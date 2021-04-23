@@ -47,6 +47,10 @@
     transform: scale(.96)
 }
 
+.featured-entry {
+    background-color: var(--entry-featured);
+}
+
 .tag-entry .entry-cover {
     display: none
 }

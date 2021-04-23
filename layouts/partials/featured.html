@@ -1,5 +1,8 @@
 {{- range $index, $page := .featured }}
-<article class="post-entry">
+{{- if eq $index 1 }}
+<div class="grid-2">
+{{- end }}
+<article class="post-entry featured-entry">
 	{{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
 	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
 	<header class="entry-header">
@@ -20,4 +23,7 @@
 	{{- end }}
 	<a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
 </article>
+{{- if eq $index 4 }}
+</div>
+{{- end }}
 {{- end -}}

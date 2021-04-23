@@ -19,8 +19,7 @@
 {{- $pages := union .RegularPages .Sections }}
 
 {{- if .IsHome }}
-<!--{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}-->
-{{- $pages := where (where site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "==" nil }}
+{{- $pages = where (where site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "==" nil }}
 {{- end }}
 
 {{- $paginator := .Paginate $pages }}
@@ -32,10 +31,12 @@
 {{- $grid := `` }}
 {{- if eq .Site.Params.layout `grid` }}
 {{- $grid = `grid-4` }}
-{{- $featured := where (where site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "!=" nil }}
-<div class="featured-articles grid-3">
-  {{- partial "featured.html" (dict "cxt" . "featured" $featured ) }}
-</div>
+{{- if and (eq .Site.Params.layout `grid`) .IsHome }}
+  {{- $featured := where (where site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "!=" nil }}
+  <div class="featured-articles grid-2">
+    {{- partial "featured.html" (dict "cxt" . "featured" $featured ) }}
+  </div>
+  {{- end }}
 {{- end }}
 
 <div class="articles {{ $grid }}">

@@ -79,7 +79,7 @@
 </noscript>
 
 <header class="header">
-	<nav class="nav">
+	<nav class="nav {{ if eq $.Site.Params.width `wide` }}nav-wide{{- end -}}">
 		<div class="logo">
 			{{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
 			{{- if .Site.Title }}
