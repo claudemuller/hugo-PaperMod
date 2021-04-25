@@ -4,7 +4,7 @@
 {{- end }}
 <article class="post-entry featured-entry">
 	{{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden "i" $index) }}
 	<header class="entry-header">
 		<h2>
 			{{- $page.Title }}
