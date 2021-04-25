@@ -21,3 +21,11 @@
 	grid-gap: 0 var(--gap);
 	grid-template-columns: var(--quarter-screen) var(--quarter-screen) var(--quarter-screen) var(--quarter-screen);
 }
+
+@media (max-device-width: 720px) {
+	.grid-2,
+	.grid-3,
+	.grid-4 {
+		display: block;
+	}
+}
