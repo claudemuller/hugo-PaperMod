@@ -142,13 +142,21 @@ body:not(.dark) #sun {
 		line-height: 2rem;
 	}
 
+	.nav {
+		justify-content: center;
+	}
+
 	.nav-cats ul {
 		flex-flow: wrap;
-		margin-top: 10px;
+		margin: 10px 13px 0 13px;
 		justify-content: center;
 	}
 
 	.nav-cats ul a {
 		padding: 0 5px;
+	}
+
+	.header .nav .logo {
+		margin: 0;
 	}
 }
