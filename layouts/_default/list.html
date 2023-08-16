@@ -69,6 +69,13 @@
     {{- if not (.Param "hideMeta") }}
     <footer class="entry-footer">
       {{- partial "post_meta.html" . -}}
+      {{- with .Params.tags -}}
+        {{- if ge (len .) 1 -}}
+            {{- range . -}}
+                &nbsp;#{{ . }}
+            {{ end -}}
+        {{- end -}}
+      {{- end -}}
     </footer>
     {{- end }}
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
