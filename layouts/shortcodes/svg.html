@@ -1,3 +1,6 @@
-<figure style="display: inline-block; width: {{ index .Params 1 }}px">
+{{ if (isset .Params 1) }}
+<figure style="display: inline-block; width: {{ index .Params 1 }}px;">
+{{ else }}
+<figure style="display: inline-block;">
 {{ readFile (print "static/" (index .Params 0)) | safeHTML }}
 </figure>
