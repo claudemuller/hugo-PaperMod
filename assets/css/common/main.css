@@ -1,3 +1,45 @@
+.category-tags {
+    float: right;
+}
+.cat-colour {
+    padding: 3px 5px;
+    border-radius: 3px;
+    color: #333333;
+}
+.cat-colour-os {
+    background-color: #FBF8CC;
+}
+.cat-colour-databases {
+      background-color: #FDE4CF
+}
+.cat-colour-cli {
+      background-color: #FFCFD2
+}
+.cat-colour-devops {
+      background-color: #F1C0E8
+}
+.cat-colour-editors {
+      background-color: #CFBAF0
+}
+.cat-colour-javascript {
+      background-color: #A3C4F3
+}
+.cat-colour-programming {
+      background-color: #90DBF4
+}
+.cat-colour-rust {
+      background-color: #8EECF5
+}
+.cat-colour-default {
+      background-color: #f5f5dc29
+}
+.cat-colour-extra {
+      background-color: #98F5E1
+}
+.cat-colour-extra2 {
+      background-color: #B9FBC0
+}
+
 .main {
     position: relative;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
