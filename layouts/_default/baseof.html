@@ -3,7 +3,7 @@
 
 <head>
     {{ if .Param "math" }}
-    {{ partialCached "math.html" . }}
+    {{ partial "math.html" . }}
     {{ end }}
 
     {{- partial "head.html" . }}
