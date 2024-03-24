@@ -32,11 +32,11 @@
 {{- if eq .Site.Params.layout `grid` }}
 {{- $grid = `grid-4` }}
 {{- if and (eq .Site.Params.layout `grid`) .IsHome }}
-  {{- $featured := where (where site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "!=" nil }}
-  <div class="featured-articles grid-2">
-    {{- partial "featured.html" (dict "cxt" . "featured" $featured ) }}
-  </div>
-  {{- end }}
+{{- $featured := where (where site.RegularPages "Type" "in" site.Params.mainSections) ".Params.featured" "!=" nil }}
+<div class="featured-articles grid-4">
+  {{- partial "featured.html" (dict "cxt" . "featured" $featured ) }}
+</div>
+{{- end }}
 {{- end }}
 
 <div class="articles {{ $grid }}">
@@ -46,7 +46,8 @@
   {{- $class := "post-entry" }}
 
   {{- $user_preferred := or .Site.Params.disableSpecial1stPost .Site.Params.homeInfoParams }}
-  {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred) (ne .Site.Params.layout `grid`)) }}
+  {{- if (and $.IsHome (eq $paginator.PageNumber 1) (eq $index 0) (not $user_preferred) (ne .Site.Params.layout `grid`))
+  }}
   {{- $class = "first-entry" }}
   {{- else if $term }}
   {{- $class = "post-entry tag-entry" }}
@@ -70,13 +71,13 @@
     <footer class="entry-footer">
       {{- partial "post_meta.html" . -}}
 
-    <div class="category-tags">
-      {{ $taxonomy := "categories" }} {{ with .Param $taxonomy }}
-          {{ range $index, $cat := . }} {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $cat) -}}
-            <span class="category-tag cat-colour cat-colour-{{ $cat | lower }}">{{ $cat | urlize }}</span>
-          {{- end -}} {{- end -}}
-      {{ end }}
-    </div>
+      <div class="category-tags">
+        {{ $taxonomy := "categories" }} {{ with .Param $taxonomy }}
+        {{ range $index, $cat := . }} {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $cat) -}}
+        <span class="category-tag cat-colour cat-colour-{{ $cat | lower }}">{{ $cat | urlize }}</span>
+        {{- end -}} {{- end -}}
+        {{ end }}
+      </div>
 
     </footer>
     {{- end }}
