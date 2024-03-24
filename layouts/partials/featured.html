@@ -1,6 +1,7 @@
 {{- range $index, $page := .featured }}
-{{- if eq $index 1 }}
-<div class="grid-2">
+<!-- {{- if eq $index 1 }} -->
+{{- if eq $index 4 }}
+<div class="grid-4">
 	{{- end }}
 	<article class="post-entry featured-entry">
 		{{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
