@@ -50,6 +50,7 @@
 .featured-entry {
 	display: flex;
 	flex-direction: column;
+	flex: 1 0 21%;
 	background-color: var(--entry-featured);
 }
 
