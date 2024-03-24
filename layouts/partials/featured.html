@@ -21,10 +21,13 @@
 		{{- partial "post_meta.html" . -}}
 
 		<div class="category-tags">
-			{{ $taxonomy := "categories" }} {{ with .Param $taxonomy }}
-			{{ range $index, $cat := . }} {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $cat) -}}
+			{{ $taxonomy := "categories" }}
+			{{ with .Param $taxonomy }}
+			{{ range $index, $cat := . }}
+			{{ with $page.GetPage (printf "/%s/%s" $taxonomy $cat) -}}
 			<span class="category-tag cat-colour cat-colour-{{ $cat | lower }}">{{ $cat | urlize }}</span>
-			{{- end -}} {{- end -}}
+			{{- end -}}
+			{{- end -}}
 			{{ end }}
 		</div>
 	</footer>
