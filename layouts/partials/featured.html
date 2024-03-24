@@ -1,29 +1,37 @@
 {{- range $index, $page := .featured }}
 {{- if eq $index 1 }}
 <div class="grid-2">
-{{- end }}
-<article class="post-entry featured-entry">
-	{{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
-	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden "i" $index) }}
-	<header class="entry-header">
-		<h2>
-			{{- $page.Title }}
-			{{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{ end -}}
-		</h2>
-	</header>
-	{{- if (ne (.Param "hideSummary") true) }}
-	<section class="entry-content">
-		<p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-	</section>
 	{{- end }}
-	{{- if not (.Param "hideMeta") }}
-	<footer class="entry-footer">
-		{{- partial "post_meta.html" . -}}
-	</footer>
-	{{- end }}
-	<a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
-{{- if eq $index 4 }}
+	<article class="post-entry featured-entry">
+		{{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
+		{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden "i" $index) }}
+		<header class="entry-header">
+			<h2>
+				{{- $page.Title }}
+				{{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{ end -}}
+			</h2>
+		</header>
+		{{- if (ne (.Param "hideSummary") true) }}
+		<section class="entry-content">
+			<p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+		</section>
+		{{- end }}
+		{{- if not (.Param "hideMeta") }}
+		<footer class="entry-footer">
+			{{- partial "post_meta.html" . -}}
+
+			<div class="category-tags">
+				{{ $taxonomy := "categories" }} {{ with .Param $taxonomy }}
+				{{ range $index, $cat := . }} {{ with $.Site.GetPage (printf "/%s/%s" $taxonomy $cat) -}}
+				<span class="category-tag cat-colour cat-colour-{{ $cat | lower }}">{{ $cat | urlize }}</span>
+				{{- end -}} {{- end -}}
+				{{ end }}
+			</div>
+		</footer>
+		{{- end }}
+		<a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+	</article>
+	{{- if eq $index 4 }}
 </div>
 {{- end }}
 {{- end -}}
