@@ -124,6 +124,11 @@
 }
 
 @media (max-device-width: 720px) {
+	.featured-entry {
+		flex: auto;
+		flex-grow: 1;
+	}
+
 	.featured-image-main {
 		display: block;
 	}
