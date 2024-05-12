@@ -44,11 +44,11 @@
 	background-color: #f5f5dc29
 }
 
-.cat-colour-extra {
+.cat-colour-experiments {
 	background-color: #98F5E1
 }
 
-.cat-colour-extra2 {
+.cat-colour-productivity {
 	background-color: #B9FBC0
 }
 
@@ -72,7 +72,7 @@
 	font-size: 40px
 }
 
-div.featured-articles {
+.featured-articles {
 	display: flex;
 	flex-wrap: wrap;
 }
