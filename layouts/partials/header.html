@@ -169,10 +169,11 @@
 	<nav class="nav nav-cats {{ if eq $.Site.Params.width `wide` }}nav-wide{{- end -}}">
 		<ul>
 			{{ $i := 0 }}
+			{{ $upperCats := slice "os" "cli" }}
 			{{ $catLen := .Site.Taxonomies.categories }}
 			{{ range $name, $c := .Site.Taxonomies.categories }}
 			{{ $i = add $i 1 }}
-			<li><a href="/categories/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+			<li><a href="/categories/{{ $name | urlize }}">{{ if in $upperCats $name }}{{ $name | upper }}{{ else }}{{ $name | humanize }}{{ end }}</a></li>
 			{{ if lt $i $catLen }}
 			<li>|</li>
 			{{ end }}
