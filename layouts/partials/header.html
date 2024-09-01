@@ -40,40 +40,38 @@
 {{- end }}
 <noscript>
 	<style type="text/css">
-			#theme-toggle,
-			.top-link {
-				display: none;
-			}
-
+		#theme-toggle,
+		.top-link {
+			display: none;
+		}
 	</style>
 	{{- if (and (ne .Site.Params.defaultTheme "light") (ne .Site.Params.defaultTheme "dark")) }}
 	<style>
-			@media (prefers-color-scheme: dark) {
-				:root {
-					--theme: #1d1e20;
-					--entry: #2e2e33;
-					--primary: rgba(255, 255, 255, 0.84);
-					--secondary: rgba(255, 255, 255, 0.56);
-					--tertiary: rgba(255, 255, 255, 0.16);
-					--content: rgba(255, 255, 255, 0.74);
-					--hljs-bg: #2e2e33;
-					--code-bg: #37383e;
-					--border: #333;
-				}
-
-				.list {
-					background: var(--theme);
-				}
-
-				.list:not(.dark)::-webkit-scrollbar-track {
-					background: 0 0;
-				}
-
-				.list:not(.dark)::-webkit-scrollbar-thumb {
-					border-color: var(--theme);
-				}
+		@media (prefers-color-scheme: dark) {
+			:root {
+				--theme: #1d1e20;
+				--entry: #2e2e33;
+				--primary: rgba(255, 255, 255, 0.84);
+				--secondary: rgba(255, 255, 255, 0.56);
+				--tertiary: rgba(255, 255, 255, 0.16);
+				--content: rgba(255, 255, 255, 0.74);
+				--hljs-bg: #2e2e33;
+				--code-bg: #37383e;
+				--border: #333;
 			}
 
+			.list {
+				background: var(--theme);
+			}
+
+			.list:not(.dark)::-webkit-scrollbar-track {
+				background: 0 0;
+			}
+
+			.list:not(.dark)::-webkit-scrollbar-thumb {
+				border-color: var(--theme);
+			}
+		}
 	</style>
 	{{- end }}
 </noscript>
@@ -85,15 +83,16 @@
 			{{- if .Site.Title }}
 			<a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
 				{{- if .Site.Params.label }}
-					{{- if .Site.Params.label.icon }}
-					<img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-						 height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
-					{{- end -}}
-					{{- $label_text -}}
+				{{- if .Site.Params.label.icon }}
+				<img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
+					height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
+				{{- end -}}
+				{{- $label_text -}}
 				{{- end -}}
 				{{- if .Site.Params.cliLabel }}
 				<div class="logo">
-					<span class="logo__text">&gt; root@{{ .Site.Title }}:~# cd /home/{{ .Site.Params.cliLabel.text }}/</span>
+					<span class="logo__text">&gt; root@{{ .Site.Title }}:~# cd /home/{{
+						.Site.Params.cliLabel.text }}/</span>
 					<span class="logo__cursor" style=" "></span>
 				</div>
 				{{- end }}
@@ -104,15 +103,18 @@
 		<div class="nav-wrapper">
 			<ul id="menu" onscroll="menu_on_scroll()">
 				{{- range .Site.Menus.main }}
-				{{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+				{{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) |
+				absLangURL }}
 				{{- $page_url:= $currentPage.Permalink | absLangURL }}
 				{{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
 				<li>
-					<a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-					{{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-					<span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
-                            {{- .Name -}}
-                        </span>
+					<a href="{{ .URL | absLangURL }}"
+						title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" |
+						safeHTMLAttr) ("" | safeHTMLAttr ) }}" {{- cond $is_search ("
+						accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
+						<span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+							{{- .Name -}}
+						</span>
 					</a>
 				</li>
 				{{- end }}
@@ -121,14 +123,14 @@
 			<span class="logo-switches">
 				{{- if (not .Site.Params.disableThemeToggle) }}
 				<button id="theme-toggle" accesskey="t" title="(Alt + T)">
-					<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-						 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						 stroke-linejoin="round">
+					<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round">
 						<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
 					</svg>
-					<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-						 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						 stroke-linejoin="round">
+					<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round">
 						<circle cx="12" cy="12" r="5"></circle>
 						<line x1="12" y1="1" x2="12" y2="3"></line>
 						<line x1="12" y1="21" x2="12" y2="23"></line>
@@ -150,9 +152,11 @@
 					{{- range . -}}
 					{{- if ne $lang .Lang }}
 					<li>
-						<a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | humanize) }}"
-						   aria-label="{{ .Language.LanguageName | default (.Lang | humanize) }}">
-							{{- if (and $.Site.Params.displayFullLangName (.Language.LanguageName)) }}
+						<a href="{{- .Permalink -}}"
+							title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | humanize) }}"
+							aria-label="{{ .Language.LanguageName | default (.Lang | humanize) }}">
+							{{- if (and $.Site.Params.displayFullLangName
+							(.Language.LanguageName)) }}
 							{{- .Language.LanguageName | emojify -}}
 							{{- else }}
 							{{- .Lang | humanize -}}
@@ -169,10 +173,12 @@
 	<nav class="nav nav-cats {{ if eq $.Site.Params.width `wide` }}nav-wide{{- end -}}">
 		<ul>
 			{{ $i := 0 }}
+			{{ $upperCats := slice "os" "cli" }}
 			{{ $catLen := .Site.Taxonomies.categories }}
 			{{ range $name, $c := .Site.Taxonomies.categories }}
 			{{ $i = add $i 1 }}
-			<li><a href="/categories/{{ $name | urlize }}">{{ $name | humanize }}</a></li>
+			<li><a href="/categories/{{ $name | urlize }}">{{ if in $upperCats $name }}{{ $name | upper }}{{
+					else }}{{ $name | humanize }}{{ end }}</a></li>
 			{{ if lt $i $catLen }}
 			<li>|</li>
 			{{ end }}
