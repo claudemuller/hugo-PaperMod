@@ -8,6 +8,7 @@
 	color: #333333;
 }
 
+.cat-colour-algorithms,
 .cat-colour-os {
 	background-color: #FBF8CC;
 }
@@ -28,6 +29,7 @@
 	background-color: #CFBAF0
 }
 
+.cat-colour-data-structures,
 .cat-colour-javascript {
 	background-color: #A3C4F3
 }
