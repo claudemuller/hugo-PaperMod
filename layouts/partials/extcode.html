@@ -1,0 +1,10 @@
+{{ $url := index .Params 0 }}
+{{ $lang := index .Params 1 }}
+{{ with resources.GetRemote $url }}
+  {{ with .Err }}
+    {{ errorf "%s" . }}
+  {{ else }}
+    {{- ( print "```" $lang "\n" .Content "\n" "```" ) | markdownify -}}
+  {{ end }}
+{{ end }}
+
